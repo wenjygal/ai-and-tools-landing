@@ -49,7 +49,7 @@
           </div>
           <label class="consent">
             <input type="checkbox" id="consent" required>
-            <span>מאשר/ת קבלת עדכונים מ-AI &amp; Tools במייל, כולל הזמנות להדרכות שמחוץ לרשימה. אפשר להסיר הרשמה בכל עת.</span>
+            <span>מאשר/ת קבלת עדכונים מ-AI &amp; Tools במייל (לעיתים יישלחו גם מ-BOOST ME), כולל הזמנות להדרכות שמחוץ לרשימה. אפשר להסיר הרשמה בכל עת. בהרשמה אני מאשר/ת את <a href="#" data-modal="modal-terms">תנאי השימוש</a> ואת <a href="#" data-modal="modal-privacy">מדיניות הפרטיות</a>.</span>
           </label>
 
           <input type="text" name="email_address_check" value="" class="input--hidden">
@@ -65,21 +65,72 @@
       </div>
     </div>
 
-    <div class="robot-panel">
-      <div class="robot-tiltbox" id="robotTilt">
-        <div class="robot-float">
-          <div class="robot-rotor" id="robotRotor">
-            <picture>
-              <source srcset="assets/robot-coffee.webp" type="image/webp">
-              <img class="robot-img" id="robotImg" src="assets/robot-coffee.png" width="932" height="1062" alt="הרובוט של AI &amp; Tools מחזיק כוס קפה עם הלוגו">
-            </picture>
-          </div>
-        </div>
-      </div>
-      <div class="robot-ground" aria-hidden="true"></div>
-      <p class="robot-caption">עוקב אחרי העכבר, ולוגם קפה כשעוברים לטופס</p>
+    <div class="robot-panel" aria-hidden="true">
+      <video class="robot-video" autoplay muted loop playsinline
+             poster="assets/robot-coffee.png">
+        <source src="assets/robot-sip-loop.webm" type="video/webm">
+        <source src="assets/robot-sip-loop.mp4" type="video/mp4">
+      </video>
     </div>
 
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-start">
+      <span class="footer-logo">AI &amp; TOOLS</span>
+      <a class="footer-social" href="https://brr7.short.gy/WhatsApp-group-ai-and-tools" target="_blank" rel="noopener" aria-label="קבוצת הוואטסאפ של AI & Tools">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.2c-1.6 0-3.1-.43-4.4-1.2l-.32-.18-3.1.82.83-3.02-.2-.31a8.17 8.17 0 0 1-1.25-4.31c0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.52-3.68 8.2-8.2 8.2Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.56.12-.17.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.21-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">© כל הזכויות שמורות ל-AI &amp; Tools 2026</p>
+    <a class="footer-a11y" href="#" data-modal="modal-a11y">הצהרת נגישות</a>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-a11y" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-a11y-title">
+    <button class="modal-close" type="button" data-close-modal aria-label="סגירה">✕</button>
+    <h2 id="modal-a11y-title">הצהרת נגישות</h2>
+    <p>אתר זה נבנה מתוך כוונה לאפשר שימוש נוח ונגיש לכלל המשתמשים, לרבות אנשים עם מוגבלות, בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע"ג–2013.</p>
+    <p><strong>רמת עמידה:</strong> האתר כוונן לעמוד בהנחיות WCAG 2.1 ברמה AA.</p>
+    <p><strong>התאמות שבוצעו:</strong></p>
+    <ul>
+      <li>ניגודיות צבעים נבדקה מול יחסי הניגודיות הנדרשים</li>
+      <li>תמיכה מלאה בניווט מקלדת</li>
+      <li>תוויות (labels) על כל שדות הטופס, ותוויות aria על אלמנטים שאינם טקסטואליים</li>
+      <li>כיבוד הגדרת "הפחתת תנועה" (prefers-reduced-motion) בדפדפן — הוידאו ברקע נעצר ומוחלף בתמונה סטטית</li>
+    </ul>
+    <p><strong>סניף פיזי:</strong> לעסק זה אין סניף או משרד פיזי הפתוח לקהל — הפעילות מתקיימת באופן מקוון בלבד.</p>
+    <p><strong>פניות בנושא נגישות:</strong> נתקלתם בבעיה? נשמח לשמוע ולתקן — <a href="mailto:wenjygal@gmail.com">wenjygal@gmail.com</a></p>
+    <p class="modal-meta">עודכן לאחרונה: 14.10.2026</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-privacy" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+    <button class="modal-close" type="button" data-close-modal aria-label="סגירה">✕</button>
+    <h2 id="modal-privacy-title">מדיניות פרטיות</h2>
+    <p><strong>מי אוסף את המידע:</strong> AI &amp; Tools (גל אפרתי).</p>
+    <p><strong>אילו פרטים נאספים:</strong> שם מלא (אופציונלי) וכתובת אימייל, בעת הרשמה לרשימת התפוצה.</p>
+    <p><strong>למה המידע נאסף:</strong> כדי לשלוח עדכונים על הדרכות חדשות ב-AI &amp; Tools, ולעיתים גם מ-BOOST ME.</p>
+    <p><strong>עיבוד על ידי צד שלישי:</strong> ניהול רשימת התפוצה ושליחת המיילים מתבצעים דרך Brevo, ספק סליקת דיוור חיצוני. המידע אינו נמכר או משותף עם גורם נוסף.</p>
+    <p><strong>הסרה מהרשימה:</strong> ניתן להסיר את ההרשמה בכל עת, דרך קישור הסרה שמופיע בכל מייל, או בפנייה ל-<a href="mailto:wenjygal@gmail.com">wenjygal@gmail.com</a>.</p>
+    <p class="modal-meta">עודכן לאחרונה: 14.10.2026</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-terms" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-terms-title">
+    <button class="modal-close" type="button" data-close-modal aria-label="סגירה">✕</button>
+    <h2 id="modal-terms-title">תנאי שימוש</h2>
+    <p>ההרשמה לרשימת התפוצה של AI &amp; Tools היא ללא עלות, ומיועדת לקבלת עדכונים על הדרכות ותכנים בתחום ה-AI.</p>
+    <p>השימוש באתר ובתוכן הנשלח בו הוא באחריות המשתמש/ת בלבד. אין באמור באתר או בתכנים הנשלחים כדי להוות ייעוץ מקצועי מחייב.</p>
+    <p>בעלת האתר רשאית לשנות, להשעות או להפסיק את פעילות רשימת התפוצה בכל עת וללא הודעה מוקדמת.</p>
+    <p>על תנאים אלה יחולו דיני מדינת ישראל.</p>
+    <p><strong>שאלות?</strong> <a href="mailto:wenjygal@gmail.com">wenjygal@gmail.com</a></p>
+    <p class="modal-meta">עודכן לאחרונה: 14.10.2026</p>
   </div>
 </div>
 
