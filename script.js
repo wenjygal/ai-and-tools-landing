@@ -62,34 +62,18 @@
     robotImg.classList.add("sip");
   });
 
-  /* ---------- form ---------- */
-  var form = document.getElementById("signupForm");
-  var emailInput = document.getElementById("email");
-  var emailError = document.getElementById("emailError");
-  var submitBtn = document.getElementById("submitBtn");
-  var successState = document.getElementById("successState");
+  /* ---------- form submission is handled by Brevo's own main.js (loaded in index.html),
+     which validates #EMAIL, toggles #error-message / #success-message, and manages the
+     submit button's loading state. Nothing to wire up here. ---------- */
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-    if (!emailOk) {
-      emailError.textContent = "כתובת אימייל לא תקינה";
-      emailInput.focus();
-      return;
-    }
-    emailError.textContent = "";
-    submitBtn.disabled = true;
-    submitBtn.textContent = "נרשם/ת...";
-
-    // TODO: wire to the real Brevo list ("התראות על הדרכות חדשות").
-    // Do not call the Brevo REST API directly from this client-side script —
-    // it would expose the secret API key in the page source. Use either:
-    //   1. Brevo's own public embedded-form endpoint (Brevo dashboard > Forms), or
-    //   2. a small serverless function that holds the API key server-side
-    //      and this form POSTs to instead.
-    setTimeout(function () {
-      form.hidden = true;
-      successState.hidden = false;
-    }, 500);
-  });
+  var consentBox = document.getElementById("consent");
+  var sipForm = document.getElementById("sib-form");
+  if (consentBox && sipForm) {
+    sipForm.addEventListener("submit", function (e) {
+      if (!consentBox.checked) {
+        e.preventDefault();
+        consentBox.focus();
+      }
+    });
+  }
 })();
