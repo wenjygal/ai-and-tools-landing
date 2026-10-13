@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI & Tools — הרשמה לרשימת התפוצה</title>
+<meta name="description" content="הרשמו לקבלת התראות על הדרכות AI חדשות ועל הזמנות להדרכות שמחוץ לרשימה.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="bg-glow" aria-hidden="true"></div>
+
+<div class="wrap">
+  <div class="hero">
+
+    <div class="form-panel">
+      <div class="card">
+        <span class="mark">AI &amp; TOOLS</span>
+        <h1>הרשמו לקבלת התראות על הדרכות חדשות</h1>
+
+        <form id="signupForm" novalidate>
+          <div class="field">
+            <label for="fullName">שם מלא</label>
+            <input type="text" id="fullName" name="fullName" placeholder="לדוגמה, גל כהן" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">אימייל</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" autocomplete="email" required>
+            <div class="error" id="emailError" role="alert"></div>
+          </div>
+          <label class="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>מאשר/ת קבלת עדכונים מ-AI &amp; Tools במייל, כולל הזמנות להדרכות שמחוץ לרשימה. אפשר להסיר הרשמה בכל עת.</span>
+          </label>
+          <button type="submit" id="submitBtn">הצטרפות לרשימה</button>
+        </form>
+
+        <div class="success" id="successState" hidden>
+          <div class="big">✓</div>
+          <h2>נרשמת בהצלחה</h2>
+          <p>ההדרכה הבאה בדרך למייל שלך.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="robot-panel">
+      <div class="robot-tiltbox" id="robotTilt">
+        <div class="robot-float">
+          <div class="robot-rotor" id="robotRotor">
+            <picture>
+              <source srcset="assets/robot-coffee.webp" type="image/webp">
+              <img class="robot-img" id="robotImg" src="assets/robot-coffee.png" width="932" height="1062" alt="הרובוט של AI &amp; Tools מחזיק כוס קפה עם הלוגו">
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="robot-ground" aria-hidden="true"></div>
+      <p class="robot-caption">עוקב אחרי העכבר, ולוגם קפה כשעוברים לטופס</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
