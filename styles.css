@@ -116,6 +116,12 @@ h1{
   margin:0 0 28px;
   text-wrap:balance;
 }
+/* Brevo's stylesheet sets #sib-form{text-align:left} directly on our form's
+   id — same specificity as any #sib-form rule of ours, so it only loses by
+   coming first in source order. Overriding it here, after their stylesheet,
+   is what actually wins. It was inherited by every label/span/button inside
+   the form; only showed up visibly on the wrapping consent paragraph. */
+#sib-form{text-align:right}
 form{display:flex;flex-direction:column;gap:18px}
 .field{display:flex;flex-direction:column;gap:6px}
 label{font-size:13px;font-weight:600;color:var(--fg2)}
