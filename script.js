@@ -69,15 +69,36 @@
     }
   });
 
-  /* Form submission is handled by Brevo's own main.js (loaded in index.html),
-     which validates #EMAIL, toggles #error-message / #success-message, and
-     manages the submit button's loading state. We only gate on local consent. */
+  /* Brevo's own main.js only validates fields carrying its "sib-input" class,
+     which ours don't (the markup here is custom-styled, not Brevo's default
+     widget skin) — so its validator silently skips EMAIL and consent and would
+     submit invalid data. We validate those two fields ourselves and block
+     Brevo's submit handler (registered after this one, via its deferred
+     script) with stopImmediatePropagation() when invalid. When valid, we let
+     the event through so Brevo's own handler still performs the real POST. */
   var consentBox = document.getElementById("consent");
   var sibForm = document.getElementById("sib-form");
-  if (consentBox && sibForm) {
+  var emailInput = document.getElementById("EMAIL");
+  var emailError = sibForm ? sibForm.querySelector(".entry__error--primary") : null;
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (sibForm) {
     sibForm.addEventListener("submit", function (e) {
-      if (!consentBox.checked) {
-        e.preventDefault();
+      var emailValid = emailInput && EMAIL_RE.test(emailInput.value.trim());
+      var consentValid = !consentBox || consentBox.checked;
+
+      if (emailError) {
+        emailError.textContent = emailValid ? "" : "נא להזין כתובת אימייל תקינה";
+      }
+
+      if (emailValid && consentValid) return;
+
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      if (!emailValid) {
+        emailInput.focus();
+      } else if (!consentValid) {
         consentBox.focus();
       }
     });

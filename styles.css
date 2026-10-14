@@ -220,6 +220,7 @@ button[type="submit"]:disabled{opacity:.6;cursor:default}
   background:var(--cyan-fill, rgba(0,200,215,.08));
   border-color:var(--border-strong);
 }
+.sib-form-message-panel--active{display:block}
 .entry__error{
   display:block;
   font-size:13px;
